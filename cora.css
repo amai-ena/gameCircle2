@@ -1,0 +1,56 @@
+ @media(max-width:768px){
+   .content{
+      padding: 40px 15px;
+   }
+   h1{
+      font-size: 28px;
+   }
+   h2{
+      font-size: 18px;
+   }
+   p{
+      font-size: 16px;
+   }
+ }
+body {
+   margin: 0;
+   background-image: url("cora.jpg"); /* ←画像名をあなたのものに変更 */
+   background-repeat: no-repeat;
+   background-size: contain;   /* A4縦の比率を維持／切れない */
+   background-position: center;
+   background-color: #000;     /* 余白が出る部分の色（自由に変更OK） */
+   height: 100vh;              /* 画面全体に適用させるため */
+}
+h2 {
+   position: fixed;
+   bottom: 20px;                    
+   left: 50%;
+   transform: translateX(-50%);
+   margin: 0;
+   padding: 12px 35px;
+   font-size: 22px;
+   font-weight: bold;
+   color: #fff;
+   background: #111;
+   border-radius: 12px;
+   border: 2px solid #00f5ff;
+   /* 最初は少し光っている状態 */
+   box-shadow: 0 0 12px #00f5ff;
+   /* 点滅アニメーション */
+   animation: blinkNeon 0.8s infinite;
+}
+@keyframes blinkNeon {
+   0%, 100% {
+       box-shadow:
+           0 0 6px #00f5ff,
+           0 0 12px #00f5ff,
+           0 0 24px #00f5ff;
+       opacity: 1;
+   }
+   50% {
+       box-shadow:
+           0 0 0px #00f5ff,
+           0 0 0px #00f5ff;
+       opacity: 0.4; /* 消えかかる */
+   }
+}
