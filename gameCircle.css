@@ -27,7 +27,7 @@ z-index: -1;
     z-index: -1;
  }
  .content{
-    color: #fff;
+   color: #fff;
    animation:
        rainbow 4s linear infinite,
        glow 1.5s ease-in-out infinite alternate,
@@ -61,17 +61,30 @@ z-index: -1;
    50%  { opacity: 0.75; }
    100% { opacity: 1; }
 }
-/* ▼▼ スマホ画面ではネオン光を弱くする ▼▼ */
-@media (max-width: 600px) {
-   .rainbow-blink {
-       font-size: 40px; /* 文字も少し小さく */
+ .content{
+     -webkit-font-smoothing: none; 
+    -moz-osx-font-smoothing: grayscale;
+ }
+ @media(max-width:768px){
+    .rainbow-blink {
        animation:
            rainbow 4s linear infinite,
            glow-mobile 1.5s ease-in-out infinite alternate,
            blink 0.7s steps(2, start) infinite;
    }
-   /* スマホ用：光を小さくして見やすく */
-   @keyframes glow-mobile {
+   .content{
+      padding: 40px 15px;
+   }
+   h1{
+      font-size: 28px;
+   }
+   h2{
+      font-size: 18px;
+   }
+   p{
+      font-size: 16px;
+   }
+    @keyframes glow-mobile {
        0% {
            text-shadow:
                0 0 2px #fff,
@@ -85,7 +98,7 @@ z-index: -1;
                0 0 12px #0ff;
        }
    }
-}
+ }
  .cora{
    display: inline-block;   /* ← ボタンの幅が内容に合わせて縮む */
    width: auto;             /* ← 念のため明示 */
