@@ -27,21 +27,18 @@ z-index: -1;
     z-index: -1;
  }
  .content{
-   color: #fff;
+    color: #fff;
    animation:
        rainbow 4s linear infinite,
        glow 1.5s ease-in-out infinite alternate,
        blink 0.7s steps(2, start) infinite;
-    font-size: 24px;
-    letter-spacing: 2px;
-    padding: 100px;
-    line-height: 1.8;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
- }
- @keyframes rainbow {
+}
+/* 虹色回転 */
+@keyframes rainbow {
    0% { filter: hue-rotate(0deg); }
    100% { filter: hue-rotate(360deg); }
 }
+/* PC用 ネオン光（強め） */
 @keyframes glow {
    0% {
        text-shadow:
@@ -58,29 +55,37 @@ z-index: -1;
            0 0 60px #0ff;
    }
 }
+/* 点滅 */
 @keyframes blink {
-   0%   { opacity: 0.75; }
-   50%  { opacity: 0.5; } /* 真っ暗にしすぎると消えるので少し残す */
-   100% { opacity: 0.75; }
+   0%   { opacity: 1; }
+   50%  { opacity: 0.75; }
+   100% { opacity: 1; }
 }
- .content{
-     -webkit-font-smoothing: none; 
-    -moz-osx-font-smoothing: grayscale;
- }
- @media(max-width:768px){
-   .content{
-      padding: 40px 15px;
+/* ▼▼ スマホ画面ではネオン光を弱くする ▼▼ */
+@media (max-width: 600px) {
+   .rainbow-blink {
+       font-size: 40px; /* 文字も少し小さく */
+       animation:
+           rainbow 4s linear infinite,
+           glow-mobile 1.5s ease-in-out infinite alternate,
+           blink 0.7s steps(2, start) infinite;
    }
-   h1{
-      font-size: 28px;
+   /* スマホ用：光を小さくして見やすく */
+   @keyframes glow-mobile {
+       0% {
+           text-shadow:
+               0 0 2px #fff,
+               0 0 4px #fff,
+               0 0 8px #f0f;
+       }
+       100% {
+           text-shadow:
+               0 0 4px #fff,
+               0 0 8px #fff,
+               0 0 12px #0ff;
+       }
    }
-   h2{
-      font-size: 18px;
-   }
-   p{
-      font-size: 16px;
-   }
- }
+}
  .cora{
    display: inline-block;   /* ← ボタンの幅が内容に合わせて縮む */
    width: auto;             /* ← 念のため明示 */
