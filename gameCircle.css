@@ -59,9 +59,9 @@ z-index: -1;
    }
 }
 @keyframes blink {
-   0%   { opacity: 1; }
+   0%   { opacity: 0.75; }
    50%  { opacity: 0.5; } /* 真っ暗にしすぎると消えるので少し残す */
-   100% { opacity: 1; }
+   100% { opacity: 0.75; }
 }
  .content{
      -webkit-font-smoothing: none; 
