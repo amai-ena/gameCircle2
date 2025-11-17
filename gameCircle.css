@@ -6,7 +6,18 @@ body{
     align-items: center;
     color: white;
     writing-mode: horizontal-tb;
-}
+     animation: neonFlash 2s infinite;
+ }
+ @keyframes neonFlash {
+   0%   { background-color: #0a0010; text-shadow: 0 0 30px red, 0 0 60px red, 0 0 90px red; color: #ffcccc; }
+   14%  { background-color: #050010; text-shadow: 0 0 30px orange, 0 0 60px orange, 0 0 90px orange; color: #fff2cc; }
+   28%  { background-color: #100000; text-shadow: 0 0 30px yellow, 0 0 60px yellow, 0 0 90px yellow; color: #222; }
+   42%  { background-color: #001000; text-shadow: 0 0 30px green, 0 0 60px green, 0 0 90px green; color: #ccffcc; }
+   57%  { background-color: #000020; text-shadow: 0 0 30px blue, 0 0 60px blue, 0 0 90px blue; color: #ccdfff; }
+   71%  { background-color: #050010; text-shadow: 0 0 30px indigo, 0 0 60px indigo, 0 0 90px indigo; color: #ddd0ff; }
+   85%  { background-color: #100010; text-shadow: 0 0 30px violet, 0 0 60px violet, 0 0 90px violet; color: #f3ccff; }
+   100% { background-color: #0a0010; text-shadow: 0 0 30px red, 0 0 60px red, 0 0 90px red; color: #ffcccc; }
+ }
 .bg{
 position: fixed;
 top: 0;
@@ -27,51 +38,11 @@ z-index: -1;
     z-index: -1;
  }
  .content{
-   color: #fff;
-   animation:
-       rainbow 4s linear infinite,
-       glow 1.5s ease-in-out infinite alternate,
-       blink 0.7s steps(2, start) infinite;
-}
-/* 虹色回転 */
-@keyframes rainbow {
-   0% { filter: hue-rotate(0deg); }
-   100% { filter: hue-rotate(360deg); }
-}
-/* PC用 ネオン光（強め） */
-@keyframes glow {
-   0% {
-       text-shadow:
-           0 0 5px #fff,
-           0 0 10px #fff,
-           0 0 20px #f0f,
-           0 0 40px #f0f;
-   }
-   100% {
-       text-shadow:
-           0 0 10px #fff,
-           0 0 20px #fff,
-           0 0 30px #0ff,
-           0 0 60px #0ff;
-   }
-}
-/* 点滅 */
-@keyframes blink {
-   0%   { opacity: 1; }
-   50%  { opacity: 0.75; }
-   100% { opacity: 1; }
-}
- .content{
-     -webkit-font-smoothing: none; 
-    -moz-osx-font-smoothing: grayscale;
+    padding: 100px;
+    line-height: 1.8;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
  }
  @media(max-width:768px){
-    .rainbow-blink {
-       animation:
-           rainbow 4s linear infinite,
-           glow-mobile 1.5s ease-in-out infinite alternate,
-           blink 0.7s steps(2, start) infinite;
-   }
    .content{
       padding: 40px 15px;
    }
@@ -83,20 +54,6 @@ z-index: -1;
    }
    p{
       font-size: 16px;
-   }
-    @keyframes glow-mobile {
-       0% {
-           text-shadow:
-               0 0 2px #fff,
-               0 0 4px #fff,
-               0 0 8px #f0f;
-       }
-       100% {
-           text-shadow:
-               0 0 4px #fff,
-               0 0 8px #fff,
-               0 0 12px #0ff;
-       }
    }
  }
  .cora{
